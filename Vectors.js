@@ -1,18 +1,6 @@
-class Vectors {
+class Vectors extends UniqueExistences {
     constructor(vectors) {
-        this.vectors = vectors;
-    }
-
-    get vectors() {
-        return this._vectors;
-    }
-
-    set vectors(vectors) {
-        for (let i = 0; i < vectors.length; i++) {
-            vectors[i] = vectors[i] instanceof Vector 
-                ? vectors[i] : new Vector(vectors[i]);
-        }
-        this._vectors = vectors;
+        super(Vector, vectors);
     }
 
     get net() {
@@ -23,16 +11,6 @@ class Vectors {
             y = this.combine(y, vector.y);
         }
         return {x, y};
-    }
-
-    getVectorById(id) {
-        for (let vector of this.vectors) {
-            if (vector.is(id)) {
-                return vector;
-            }
-        }
-
-        return undefined;
     }
 
     getEffect(t) {

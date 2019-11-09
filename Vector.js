@@ -1,15 +1,6 @@
-/*
- * Vector has two components, x and y. Each is an array
- * of numbers. 
- * 
- * x = [o1, o2, o3, ...]
- * y = [o1, o2, o3, ...]
- * 
- * The order of each number gets bigger.
- */
-class Vector {
+class Vector extends UniqueExistence {
     constructor(x, y) {
-        this._id = 'v' + Math.random();
+        super('vector');
 
         if (arguments.length === 1) {
             this.x = arguments[0].x;
@@ -46,17 +37,5 @@ class Vector {
         }
 
         this._y = y;
-    }
-
-    get id() {
-        return this._id;
-    }
-
-    set id(id) {
-        throw Error('You are not allowed to set id to a vector');
-    }
-
-    is(id) {
-        return this._id === id;
     }
 }

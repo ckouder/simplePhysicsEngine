@@ -1,10 +1,22 @@
-class Matter {
+class Matter extends UniqueExistence {
     constructor(w, s, i) {
-        this.weight = w;
-        this.shape = s;
-        this.interactions = i;
+        super('matter');
+        
+        if (arguments.length === 1) {
+            this.weight = arguments[0].weight;
+            this.shape = arguments[0].shape;
+            this.interactions = arguments[0].interactions;
+
+        } else if (arguments.length === 3) {
+            this.weight = w;
+            this.shape = s;
+            this.interactions = i;  
+
+        } else {
+            throw Error('invalid argument length');
+        }
     }
-    
+
     static get G() {
         return 667;
     }
